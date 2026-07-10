@@ -1,0 +1,28 @@
+{
+  "name": "flicker-dot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The runtime player for Flicker — dot-grid loading spinners you design at flicker.laurie.fyi.",
+  "keywords": [
+    "spinner",
+    "loader",
+    "loading",
+    "dot-grid",
+    "flip-dot",
+    "svg",
+    "animation",
+    "react",
+    "flicker"
+  ],
+  "license": "MIT",
+  "author": "Laura Escobar",
+  "homepage": "https://flicker.laurie.fyi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/laurieesc/flicker-dot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/laurieesc/flicker-dot/issues"
+  },
+  "funding": "https://github.com/sponsors/laurieesc"
+}
