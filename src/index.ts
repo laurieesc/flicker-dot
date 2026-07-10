@@ -1,0 +1,11 @@
+export { FlickerSpinner } from './FlickerSpinner';
+export type { FlickerSpinnerProps, FlickerVariant } from './FlickerSpinner';
+export type { FlickerGrids, FlickerFrame } from './schema';
+export { computeModel } from './model';
+export type { SpinnerModel, DotModel, DotKind, KeyframeModel } from './model';
+export {
+  FRAME_INTERVAL, DOT_R, PITCH, OFFSET,
+  VIEWBOX_FULL, VIEWBOX_SMALL, SIZE_FULL, SIZE_SMALL,
+  COLS_FULL, COLS_SMALL, DOTS_FULL, DOTS_SMALL,
+  DEFAULT_ON, DEFAULT_OFF, SAFE_AREA_INDICES, toSmallFrame,
+} from './constants';
