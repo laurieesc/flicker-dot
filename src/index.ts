@@ -1,5 +1,5 @@
 export { FlickerSpinner } from './FlickerSpinner';
-export type { FlickerSpinnerProps, FlickerVariant } from './FlickerSpinner';
+export type { FlickerSpinnerProps, FlickerVariant, FlickerFit, FlickerTheme } from './FlickerSpinner';
 export type { FlickerGrids, FlickerFrame } from './schema';
 export { computeModel } from './model';
 export type { SpinnerModel, DotModel, DotKind, KeyframeModel } from './model';
