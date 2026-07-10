@@ -24,5 +24,32 @@
   "bugs": {
     "url": "https://github.com/laurieesc/flicker-dot/issues"
   },
-  "funding": "https://github.com/sponsors/laurieesc"
+  "funding": "https://github.com/sponsors/laurieesc",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup && tsc --emitDeclarationOnly --declaration --rootDir src --outDir dist",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "react": "^19",
+    "tsup": "^8.5.1",
+    "typescript": "^5.7.3"
+  }
 }
