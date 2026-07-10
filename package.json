@@ -1,7 +1,6 @@
 {
   "name": "flicker-dot",
   "version": "0.1.0",
-  "private": true,
   "description": "The runtime player for Flicker — dot-grid loading spinners you design at flicker.laurie.fyi.",
   "keywords": [
     "spinner",
@@ -39,6 +38,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup && tsc --emitDeclarationOnly --declaration --rootDir src --outDir dist",
     "prepublishOnly": "npm run build"
