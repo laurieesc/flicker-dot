@@ -110,16 +110,21 @@ export function FlickerSpinner({
     >
       <title>{title}</title>
       <style>{css}</style>
+      {/* Backing layer — every dot gets an OFF circle, so an animated dot
+          fades back to OFF rather than to nothing. Matches the exporters,
+          which emit an unconditional backing circle per dot. */}
+      {model.dots.map((d, i) => (
+        <circle key={`b${i}`} cx={d.cx} cy={d.cy} r={DOT_R} />
+      ))}
+      {/* ON layer — overlays the backing circle. */}
       {model.dots.map((d, i) => {
-        if (d.kind === 'off') {
-          return <circle key={i} cx={d.cx} cy={d.cy} r={DOT_R} />;
-        }
+        if (d.kind === 'off') return null;
         if (d.kind === 'on-static') {
-          return <circle key={i} className="on" cx={d.cx} cy={d.cy} r={DOT_R} />;
+          return <circle key={`o${i}`} className="on" cx={d.cx} cy={d.cy} r={DOT_R} />;
         }
         return (
           <circle
-            key={i}
+            key={`o${i}`}
             className="on"
             cx={d.cx}
             cy={d.cy}
