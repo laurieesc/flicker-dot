@@ -13,3 +13,7 @@ dist/
 
 # os
 .DS_Store
+
+# agent tooling (local only, not published)
+CLAUDE.md
+docs/agents/

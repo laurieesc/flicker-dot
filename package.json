@@ -43,6 +43,7 @@
   },
   "scripts": {
     "build": "tsup && tsc --emitDeclarationOnly --declaration --rootDir src --outDir dist",
+    "test": "vitest run",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
@@ -50,8 +51,11 @@
   },
   "devDependencies": {
     "@types/react": "^19",
+    "@types/react-dom": "^19",
     "react": "^19",
+    "react-dom": "^19",
     "tsup": "^8.5.1",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vitest": "^3"
   }
 }
