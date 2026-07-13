@@ -8,12 +8,11 @@ is `0`, the public API may still shift between minor versions.
 ## [0.1.3] - 2026-07-12
 
 ### Fixed
-- Republished the README. `0.1.2`'s tarball shipped the original scaffold
-  README instead of the real one — the Phase 6 rewrite (props table, usage
-  examples, theming recipe) had landed in the repo after `0.1.2` was
-  published, so it never made it into a tarball. Documentation only, no
-  runtime changes — confirmed via a byte-identical tarball diff against
-  `0.1.2`.
+- Republished the README. The version published with `0.1.2` was outdated —
+  it still described the package as pre-release and was missing the props
+  table, usage examples, and theming guide. This release corrects it.
+  Documentation only, no runtime changes — confirmed via a byte-identical
+  tarball diff against `0.1.2`.
 
 ## [0.1.2] - 2026-07-11
 
