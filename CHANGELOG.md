@@ -5,6 +5,16 @@ All notable changes to this project are documented here. Format follows
 uses [Semantic Versioning](https://semver.org/) — while the major version
 is `0`, the public API may still shift between minor versions.
 
+## [0.1.3] - 2026-07-12
+
+### Fixed
+- Republished the README. `0.1.2`'s tarball shipped the original scaffold
+  README instead of the real one — the Phase 6 rewrite (props table, usage
+  examples, theming recipe) had landed in the repo after `0.1.2` was
+  published, so it never made it into a tarball. Documentation only, no
+  runtime changes — confirmed via a byte-identical tarball diff against
+  `0.1.2`.
+
 ## [0.1.2] - 2026-07-11
 
 ### Added
