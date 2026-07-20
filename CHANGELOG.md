@@ -5,6 +5,24 @@ All notable changes to this project are documented here. Format follows
 uses [Semantic Versioning](https://semver.org/) — while the major version
 is `0`, the public API may still shift between minor versions.
 
+## [0.1.4] - 2026-07-19
+
+### Changed
+- Publishing now uses npm's OIDC Trusted Publishing instead of a
+  long-lived `NPM_TOKEN` secret. GitHub Actions proves its identity to
+  npm per-run and npm issues an ephemeral, job-scoped credential —
+  nothing to rotate, nothing to leak.
+- CI bumped to `actions/checkout@v5`, `actions/setup-node@v5`, and
+  Node 22 in both workflows. `publish.yml` also pins `npm@11`, the
+  minimum version required for trusted publishing.
+- Normalized `repository.url` (`npm pkg fix`) to the `git+https://`
+  form OIDC provenance expects.
+
+### Fixed
+- README now explains *how* to get a spinner's frame data, not just
+  *where* — the Code panel's CLI and Manual tabs, including the
+  Lottie export that shipped in the app's `v1.3.0`.
+
 ## [0.1.3] - 2026-07-12
 
 ### Fixed
