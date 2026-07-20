@@ -60,6 +60,13 @@ frame is a flat array of 49 booleans (a 7×7 grid, indexed `row * 7 + col`).
 You'll get this from the [Flicker editor](https://flicker.laurie.fyi) as a
 paste-ready export; you're not meant to hand-write it.
 
+To get it: open [flicker.laurie.fyi](https://flicker.laurie.fyi), open or
+create a spinner, and go to its Code panel. The CLI tab gives you the
+`npm install` command plus a live usage snippet wired to that spinner's
+`grids`. The Manual tab exports the same pattern as a static SVG, React
+component, Flutter widget, or Lottie JSON, if you'd rather copy the output
+directly instead of pulling in this package.
+
 ### Props
 
 | Prop | Type | Default | What it does |
