@@ -1,3 +1,5 @@
+![Flicker: a dot-grid spinner library](./assets/hero.png)
+
 [![Tests](https://github.com/laurieesc/flicker-dot/actions/workflows/test.yml/badge.svg)](https://github.com/laurieesc/flicker-dot/actions/workflows/test.yml)
 [![npm version](https://img.shields.io/npm/v/flicker-dot.svg)](https://www.npmjs.com/package/flicker-dot)
 [![license](https://img.shields.io/npm/l/flicker-dot.svg)](./LICENSE)
@@ -38,6 +40,8 @@ states instead of an eased fade.
 `flicker-dot` is that idea, packaged. You design the dot pattern visually,
 export it, and this component plays it back as a real SVG, styled with CSS
 custom properties, honoring `prefers-reduced-motion` by default.
+
+More on why this exists as its own thing: [Flicker's origin story](https://www.itdepends.fyi/p/the-only-way-out-is-through).
 
 ## Usage
 
