@@ -31,6 +31,18 @@ merge. If you're changing `computeModel` or `<FlickerSpinner>`, add or
 update a test alongside the change rather than after; a behavior change
 with no corresponding test is the fastest way to get asked for one.
 
+### Swift
+
+```bash
+swift test
+```
+
+The SwiftUI player lives in `swift/`, with `Package.swift` at the repo root
+because Swift Package Manager only reads manifests from there. It mirrors
+the React player: geometry and timing in `Constants.swift` and
+`computeModel`, rendering in `FlickerSpinner.swift`. A change to one
+player's behavior should land in the other, with tests on both sides.
+
 ## Building
 
 ```bash

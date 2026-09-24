@@ -129,11 +129,49 @@ for a future Flutter player), and it's parked until there's a concrete
 reason to build it. If you hit that wall, an issue with your use case is
 the fastest way to move it up the list.
 
+## SwiftUI
+
+The same player for iOS, macOS, tvOS, watchOS and visionOS, as a Swift
+package in this repo. It reads the same `grids` data and matches the React
+player's geometry, timing and props, drawing each frame in a SwiftUI
+`Canvas` instead of CSS keyframes.
+
+In Xcode, go to File → Add Package Dependencies… and paste
+`https://github.com/laurieesc/flicker-dot`. Or in `Package.swift`:
+
+```swift
+.package(url: "https://github.com/laurieesc/flicker-dot", from: "0.2.0")
+```
+
+```swift
+import FlickerDot
+
+FlickerSpinner(grids: grids, onColor: .primary, offColor: .secondary.opacity(0.2))
+```
+
+`grids` is the same flat 49-boolean frames the React player takes, so the
+editor's JSON export decodes directly:
+
+```swift
+let grids = try JSONDecoder().decode(FlickerGrids.self, from: data)
+```
+
+Props map one-to-one: `onColor`, `offColor`, `theme`, `variant`
+(`.grid7x7` / `.grid5x5`), `size` (points), `playing`, `speed`, `reverse`
+and `title` (the accessibility label). `className` and `style` become
+ordinary SwiftUI modifiers. There's no `fit`, since the spinner is always
+square. Colors are SwiftUI `Color`s, so `.primary` or an asset-catalog
+color follows light and dark mode the way a CSS variable does on the web.
+Reduce Motion holds the spinner on its first frame.
+
+Supports iOS 15, macOS 12, tvOS 15, watchOS 8 and visionOS 1 and later.
+
 ## Implementations
 
 | Platform | Package | Status |
 |---|---|---|
 | React | `flicker-dot` (this repo) | Stable |
+| SwiftUI | `FlickerDot` Swift package (this repo) | New |
 | Flutter | — | Not yet published. [Ping the maintainer](https://github.com/laurieesc) if you're building one. |
 
 ## Contributing

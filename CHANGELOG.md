@@ -5,6 +5,15 @@ All notable changes to this project are documented here. Format follows
 uses [Semantic Versioning](https://semver.org/) — while the major version
 is `0`, the public API may still shift between minor versions.
 
+## [Unreleased]
+
+### Added
+- SwiftUI player: a `FlickerDot` Swift package for iOS, macOS, tvOS,
+  watchOS and visionOS. It takes the same `grids` data and matches the
+  React player's geometry, 150ms timing and props. It lives in `swift/`
+  with its manifest at the repo root; the npm package is unchanged.
+- CI runs the Swift test suite on macOS alongside the React tests.
+
 ## [0.1.4] - 2026-07-19
 
 ### Changed

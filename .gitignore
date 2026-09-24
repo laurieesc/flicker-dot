@@ -3,6 +3,8 @@ node_modules/
 
 # build output
 dist/
+.build/
+.swiftpm/
 
 # logs
 *.log
