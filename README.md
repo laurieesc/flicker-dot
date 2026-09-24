@@ -6,7 +6,7 @@
 
 # flicker-dot
 
-A dot-grid loading spinner for React. 49 dots, one flip-dot animation, zero
+A dot-grid loading spinner for React and SwiftUI. 49 dots, one flip-dot animation, zero
 runtime dependencies.
 
 Every spinner ships from [flicker.laurie.fyi](https://flicker.laurie.fyi),
@@ -149,22 +149,35 @@ import FlickerDot
 FlickerSpinner(grids: grids, onColor: .primary, offColor: .secondary.opacity(0.2))
 ```
 
-`grids` is the same flat 49-boolean frames the React player takes, so the
-editor's JSON export decodes directly:
+`grids` is the same flat 49-boolean frames the React player takes. The
+editor doesn't have a Swift tab yet, so for now copy the `grids` array from
+the CLI tab's snippet into a `.json` file in your app and decode it:
 
 ```swift
 let grids = try JSONDecoder().decode(FlickerGrids.self, from: data)
 ```
 
-Props map one-to-one: `onColor`, `offColor`, `theme`, `variant`
-(`.grid7x7` / `.grid5x5`), `size` (points), `playing`, `speed`, `reverse`
-and `title` (the accessibility label). `className` and `style` become
-ordinary SwiftUI modifiers. There's no `fit`, since the spinner is always
-square. Colors are SwiftUI `Color`s, so `.primary` or an asset-catalog
+| Parameter | Type | Default | What it does |
+|---|---|---|---|
+| `grids` | `FlickerGrids` | — | Required. The frame data. |
+| `onColor` | `Color?` | `#262626` | Color of a lit dot. |
+| `offColor` | `Color?` | `#e5e5e5` | Color of an unlit dot. |
+| `theme` | `FlickerTheme?` | — | Shorthand for the pair above. Explicit `onColor`/`offColor` win if both are set. |
+| `variant` | `FlickerVariant` | `.grid7x7` | Full grid, or the derived inner 5×5 (`.grid5x5`). |
+| `size` | `CGFloat?` | `28` (7×7) / `16` (5×5) | Render size in points. |
+| `playing` | `Bool` | `true` | Pausing holds the current frame; resuming carries on from it. |
+| `speed` | `Double` | `1` | Playback rate multiplier. `2` runs twice as fast. |
+| `reverse` | `Bool` | `false` | Plays the frame sequence backward. |
+| `title` | `String` | `"Loading"` | Accessibility label. |
+
+`className` and `style` become ordinary SwiftUI modifiers. There's no
+`fit`, since the spinner is always square. Colors are SwiftUI `Color`s, so `.primary` or an asset-catalog
 color follows light and dark mode the way a CSS variable does on the web.
 Reduce Motion holds the spinner on its first frame.
 
 Supports iOS 15, macOS 12, tvOS 15, watchOS 8 and visionOS 1 and later.
+The Swift package and the npm package share one version number and one
+changelog, so every release tags both.
 
 ## Implementations
 

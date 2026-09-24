@@ -12,7 +12,6 @@ is `0`, the public API may still shift between minor versions.
   watchOS and visionOS. It takes the same `grids` data and matches the
   React player's geometry, 150ms timing and props. It lives in `swift/`
   with its manifest at the repo root; the npm package is unchanged.
-- CI runs the Swift test suite on macOS alongside the React tests.
 
 ## [0.1.4] - 2026-07-19
 
