@@ -63,8 +63,10 @@ public func computeModel(_ grids: FlickerGrids, small: Bool = false) -> SpinnerM
 public func frameIndex(elapsed: TimeInterval, frameCount n: Int, speed: Double = 1, reverse: Bool = false) -> Int {
     guard n > 0 else { return 0 }
     let interval = FRAME_INTERVAL / (speed > 0 ? speed : 1)
-    // Timeline dates land a hair before each boundary (0.8999999s for 0.9s);
-    // without the tolerance every frame would show one tick late.
-    let step = Int((max(elapsed, 0) / interval + 1e-6).rounded(.down)) % n
+    // Timeline dates land a hair before each boundary (0.8999999s for 0.9s),
+    // and real Date() timestamps only resolve ~1e-7s. A thousandth of a frame
+    // absorbs both without ever being visible; any tighter and frames show a
+    // tick late.
+    let step = Int((max(elapsed, 0) / interval + 1e-3).rounded(.down)) % n
     return reverse ? n - 1 - step : step
 }

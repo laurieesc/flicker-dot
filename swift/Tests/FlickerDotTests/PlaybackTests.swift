@@ -17,6 +17,20 @@ import Testing
         #expect(frameIndex(elapsed: 0.8999999761581421, frameCount: 6) == 0)
     }
 
+    @Test func boundariesHoldWithRealTimestampsAtHighSpeed() {
+        // Real origins come from Date(), ~8e8s after the reference date, where
+        // a Double only resolves ~1e-7s. At speed 4 that rounding outgrows a
+        // tiny tolerance and frames land a tick early or late.
+        let origin = Date(timeIntervalSinceReferenceDate: 8e8)
+        let speed = 4.0
+        let interval = FRAME_INTERVAL / speed
+        for k in 0..<100 {
+            let tick = origin.addingTimeInterval(Double(k) * interval)
+            let elapsed = tick.timeIntervalSince(origin)
+            #expect(frameIndex(elapsed: elapsed, frameCount: 6, speed: speed) == k % 6, "boundary \(k)")
+        }
+    }
+
     @Test func speed() {
         #expect(frameIndex(elapsed: 0.076, frameCount: 4, speed: 2) == 1)
         #expect(frameIndex(elapsed: 0.151, frameCount: 4, speed: 0.5) == 0)
