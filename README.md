@@ -65,10 +65,11 @@ You'll get this from the [Flicker editor](https://flicker.laurie.fyi) as a
 paste-ready export; you're not meant to hand-write it.
 
 To get it: open [flicker.laurie.fyi](https://flicker.laurie.fyi), open or
-create a spinner, and go to its Code panel. The CLI tab gives you the
+create a spinner, and go to its Code panel. The Package tab gives you the
 `npm install` command plus a live usage snippet wired to that spinner's
-`grids`. The Manual tab exports the same pattern as a static SVG, React
-component, Flutter widget, or Lottie JSON, if you'd rather copy the output
+`grids`. Switch it from React to Swift for the SwiftUI version (see
+[SwiftUI](#swiftui)). The Manual tab exports the same pattern as a static
+SVG, React component, Flutter widget, or Lottie JSON, if you'd rather copy the output
 directly instead of pulling in this package.
 
 ### Props
@@ -149,9 +150,13 @@ import FlickerDot
 FlickerSpinner(grids: grids, onColor: .primary, offColor: .secondary.opacity(0.2))
 ```
 
-`grids` is the same flat 49-boolean frames the React player takes. The
-editor doesn't have a Swift tab yet, so for now copy the `grids` array from
-the CLI tab's snippet into a `.json` file in your app and decode it:
+`grids` is the same flat 49-boolean frames the React player takes. To get
+them, open a spinner's Code panel in the [editor](https://flicker.laurie.fyi),
+go to Package and switch to Swift. You get a paste-ready SwiftUI file with
+that spinner's frames and colors, which builds as-is.
+
+If you'd rather keep frames in a JSON file, a plain `[[true, false, …], …]`
+array decodes directly:
 
 ```swift
 let grids = try JSONDecoder().decode(FlickerGrids.self, from: data)
