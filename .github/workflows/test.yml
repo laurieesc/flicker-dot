@@ -18,3 +18,13 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+
+  swift:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - run: swift test
+
+      # swift test only builds for macOS; this catches iOS-only compile breaks.
+      - run: xcodebuild build -scheme FlickerDot -destination 'generic/platform=iOS'
