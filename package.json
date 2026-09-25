@@ -1,6 +1,6 @@
 {
   "name": "flicker-dot",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "The runtime player for Flicker — dot-grid loading spinners you design at flicker.laurie.fyi.",
   "keywords": [
     "spinner",
