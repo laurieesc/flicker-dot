@@ -5,13 +5,16 @@ All notable changes to this project are documented here. Format follows
 uses [Semantic Versioning](https://semver.org/) — while the major version
 is `0`, the public API may still shift between minor versions.
 
-## [Unreleased]
+## [0.2.0] - 2026-09-25
 
 ### Added
 - SwiftUI player: a `FlickerDot` Swift package for iOS, macOS, tvOS,
   watchOS and visionOS. It takes the same `grids` data and matches the
   React player's geometry, 150ms timing and props. It lives in `swift/`
   with its manifest at the repo root; the npm package is unchanged.
+- One version number now covers both players. Each release tags the
+  Swift package and publishes to npm together, so a change to either
+  player bumps both.
 
 ## [0.1.4] - 2026-07-19
 
