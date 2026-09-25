@@ -23,7 +23,7 @@ import Testing
         // tiny tolerance and frames land a tick early or late.
         let origin = Date(timeIntervalSinceReferenceDate: 8e8)
         let speed = 4.0
-        let interval = FRAME_INTERVAL / speed
+        let interval = Flicker.frameInterval / speed
         for k in 0..<100 {
             let tick = origin.addingTimeInterval(Double(k) * interval)
             let elapsed = tick.timeIntervalSince(origin)

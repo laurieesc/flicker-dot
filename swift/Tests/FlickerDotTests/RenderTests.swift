@@ -35,8 +35,8 @@ import Testing
         guard #available(iOS 16, macOS 13, tvOS 16, watchOS 9, *) else { return } // ImageRenderer
         let full = ImageRenderer(content: FlickerSpinner(grids: allOn(1)))
         let small = ImageRenderer(content: FlickerSpinner(grids: allOn(1), variant: .grid5x5))
-        #expect(full.cgImage.map { CGSize(width: $0.width, height: $0.height) } == CGSize(width: SIZE_FULL, height: SIZE_FULL))
-        #expect(small.cgImage.map { CGSize(width: $0.width, height: $0.height) } == CGSize(width: SIZE_SMALL, height: SIZE_SMALL))
+        #expect(full.cgImage.map { CGSize(width: $0.width, height: $0.height) } == CGSize(width: Flicker.sizeFull, height: Flicker.sizeFull))
+        #expect(small.cgImage.map { CGSize(width: $0.width, height: $0.height) } == CGSize(width: Flicker.sizeSmall, height: Flicker.sizeSmall))
     }
 
     @Test func colorPrecedence() throws {

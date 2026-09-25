@@ -58,9 +58,9 @@ public struct FlickerSpinner: View {
                 title: String = "Loading") {
         let small = variant == .grid5x5
         self.model = computeModel(grids, small: small)
-        self.onColor = onColor ?? theme?.on ?? DEFAULT_ON
-        self.offColor = offColor ?? theme?.off ?? DEFAULT_OFF
-        self.size = size ?? (small ? SIZE_SMALL : SIZE_FULL)
+        self.onColor = onColor ?? theme?.on ?? Flicker.defaultOn
+        self.offColor = offColor ?? theme?.off ?? Flicker.defaultOff
+        self.size = size ?? (small ? Flicker.sizeSmall : Flicker.sizeFull)
         self.playing = playing
         self.speed = speed
         self.reverse = reverse
@@ -74,7 +74,7 @@ public struct FlickerSpinner: View {
             if reduceMotion || model.n < 2 {
                 frame(0)
             } else if playing {
-                TimelineView(.periodic(from: clock.origin, by: FRAME_INTERVAL / (speed > 0 ? speed : 1))) { context in
+                TimelineView(.periodic(from: clock.origin, by: Flicker.frameInterval / (speed > 0 ? speed : 1))) { context in
                     frame(index(at: context.date))
                 }
             } else {
@@ -114,9 +114,9 @@ struct FlickerFrameView: View {
             let origin = CGPoint(x: (size.width - model.viewBox * scale) / 2,
                                  y: (size.height - model.viewBox * scale) / 2)
             for dot in model.dots {
-                let rect = CGRect(x: origin.x + (dot.cx - DOT_R) * scale,
-                                  y: origin.y + (dot.cy - DOT_R) * scale,
-                                  width: DOT_R * 2 * scale, height: DOT_R * 2 * scale)
+                let rect = CGRect(x: origin.x + (dot.cx - Flicker.dotRadius) * scale,
+                                  y: origin.y + (dot.cy - Flicker.dotRadius) * scale,
+                                  width: Flicker.dotRadius * 2 * scale, height: Flicker.dotRadius * 2 * scale)
                 let circle = Path(ellipseIn: rect)
                 context.fill(circle, with: .color(offColor))
                 if dot.pattern.indices.contains(frame) && dot.pattern[frame] {
